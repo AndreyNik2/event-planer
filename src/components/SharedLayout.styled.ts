@@ -28,7 +28,6 @@ export const Container = styled.div`
 export const Logo = styled(Link)`
   outline: none;
   text-decoration: none;
-  text-decoration: none;
   font-family: "Alata";
   font-size: 24px;
   font-weight: 400;
