@@ -31,11 +31,77 @@ export const Title = styled.h1`
 
 export const EventContainer = styled.div``;
 
+export const RelativeBtnContainer = styled.div`
+position: relative;
+`
+
 export const BtnContainer = styled.div`
   padding-top: 40px;
   display: flex;
   gap: 24px;
   justify-content: flex-end;
+`;
+
+export const FilterContainer = styled.div`
+  position: absolute;
+  z-index: 999;
+  top:0;
+  left:-10px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  width: 170px;
+  overflow: hidden;
+`;
+
+export const SortContainer = styled.div`
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: -95px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  width: 170px;
+  overflow: hidden;
+`;
+
+export const FilterTitleContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-around;
+margin: 16px 24px;
+`
+
+export const FilterTitle = styled.p`
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #7b61ff;
+`;
+
+
+
+export const FilterList = styled.ul`
+
+`
+
+export const FilterItem = styled.li`
+  display: block;
+  width: 170px;
+  height: 32px;
+  border-top: 1px solid #aca7c3;
+`;
+
+export const FilterButtons = styled.button`
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #aca7c3;
+  background-color: transparent;
 `;
 
 export const CreateLinkContainer = styled(Link)`
@@ -62,14 +128,22 @@ export const FilterSortBtns = styled.button`
   outline: none;
   border: none;
   box-shadow: 2px 4px 9px 0px #a68dae47;
+  
 `;
 
 export const EventsList = styled.ul`
   padding: 0;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin: 40px auto;
   display: grid;
+  grid-template-columns: 271px;
   gap: 24px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 326px 326px;
+  }
+  @media (min-width: 1440px) {
+    grid-template-columns: 302px 302px 302px 302px;
+  }
 `;
 
 export const EventLink = styled(Link)`
@@ -83,7 +157,6 @@ export const EventItem = styled.li`
   position: relative;
   display: block;
   height: 480px;
-  width: 271px;
   background-color: #ffffff;
   border-radius: 10px;
   overflow: hidden;
@@ -130,7 +203,7 @@ export const HoverContainer = styled.div`
 `;
 
 export const DateContainer = styled.div`
-  width: 236px;
+  width: calc(100% - 32px);
   display: flex;
   justify-content: space-between;
   padding: 16px 18px;
