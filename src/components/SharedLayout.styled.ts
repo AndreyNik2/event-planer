@@ -4,7 +4,7 @@ import Select from "react-select";
 
 export const Header = styled.header`
   border-bottom: 1px solid #7b61ff;
- 
+
   background-color: #fefcff;
 `;
 
@@ -18,9 +18,12 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   @media (min-width: 768px) {
-    width: 768px;
+    width: 720px;
+    position: relative;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
+    padding-left: 80px;
+    padding-right: 80px;
     width: 1280px;
   }
 `;
@@ -43,6 +46,10 @@ export const LogoLangContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1440px) {
+  }
 `;
 
 export const LangForm = styled.form``;
@@ -51,11 +58,25 @@ export const LangSelect = styled(Select)`
   box-shadow: 2px 4px 9px 0px #a68dae47;
 `;
 
+export const SearchFormContainer = styled.div`
+  @media (min-width: 768px) {
+    position: absolute;
+    top: 24px;
+    right: 150px;
+  }
+  @media (min-width: 1440px) {
+    top: 24px;
+    right: 200px;
+  }
+`;
+
 export const SearchForm = styled.form`
   position: relative;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1440px) {
+  }
 `;
 
 export const SearchInput = styled.input`

@@ -8,8 +8,11 @@ export const ContainerStyled = styled.div`
   margin-right: auto;
   @media (min-width: 768px) {
     width: 720px;
+    padding: 0 24px;
   }
-  @media (min-width: 1280px) {
-    width: 1232px;
+  @media (min-width: 1440px) {
+    width: 1280px;
+    padding-left: 80px;
+    padding-right: 80px;
   }
 `;

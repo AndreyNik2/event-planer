@@ -8,6 +8,7 @@ import {
   Logo,
   LogoLangContainer,
   SearchForm,
+  SearchFormContainer,
   SearchImgContainer,
   SearchInput,
 } from "./SharedLayout.styled";
@@ -52,17 +53,19 @@ export const SharedLayout: FC = () => {
               />
             </LangForm>
           </LogoLangContainer>
-          <SearchForm onSubmit={handleSubmit(onSubmit)}>
-            <SearchInput
-              {...register("query")}
-              placeholder="Search by keywords"
-            />
-            <SearchImgContainer>
-              <svg width={17} height={17}>
-                <image href={SearchIcon} />
-              </svg>
-            </SearchImgContainer>
-          </SearchForm>
+          <SearchFormContainer>
+            <SearchForm onSubmit={handleSubmit(onSubmit)}>
+              <SearchInput
+                {...register("query")}
+                placeholder="Search by keywords"
+              />
+              <SearchImgContainer>
+                <svg width={17} height={17}>
+                  <image href={SearchIcon} />
+                </svg>
+              </SearchImgContainer>
+            </SearchForm>
+          </SearchFormContainer>
         </Container>
       </Header>
       <Outlet />
