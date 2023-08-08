@@ -9,9 +9,10 @@ import Event8 from "../assets/img/event8-1x.jpg";
 
 export const events = [
   {
-    id: 1,
+    id: "1",
     name: "Galery Openning",
-    date: "12/07/2023 12:00:00 PM",
+    date: "12/07/2023",
+    time: "12:00",
     description:
       "Discover an enchanting evening celebrating the world of art at our exclusive gallery opening.",
     url: Event1,
@@ -20,9 +21,10 @@ export const events = [
     city: "Kyiv",
   },
   {
-    id: 2,
+    id: "2",
     name: "Inovation Summit",
-    date: "13/07/2023 12:00:00 PM",
+    date: "13/07/2023",
+    time: "12:00",
     description:
       "Engage in a thought-provoking journey of knowledge and collaboration at our Innovation Summit.",
     url: Event2,
@@ -31,9 +33,10 @@ export const events = [
     city: "Barselona",
   },
   {
-    id: 3,
+    id: "3",
     name: "Empower Your Creativity",
-    date: "14/07/2023 12:00:00 PM",
+    date: "14/07/2023",
+    time: "12:00",
     description:
       "Ignite your creativity and nurture your storytelling skills in our immersive Creative Writing Workshop. ",
     url: Event3,
@@ -42,9 +45,10 @@ export const events = [
     city: "Amsterdam",
   },
   {
-    id: 4,
+    id: "4",
     name: "Summer Soiree",
-    date: "15/07/2023 12:00:00 PM",
+    date: "15/07/2023",
+    time: "12:00",
     description:
       "Embrace the tropical vibes and escape to paradise at our Beach Luau Extravaganza.",
     url: Event4,
@@ -53,9 +57,10 @@ export const events = [
     city: "Kyiv",
   },
   {
-    id: 5,
+    id: "5",
     name: "Leadership Conference",
-    date: "16/07/2023 12:00:00 PM",
+    date: "16/07/2023",
+    time: "12:00",
     description:
       "Unlock the secrets of effective leadership at our transformative Success Leadership Conference.",
     url: Event5,
@@ -64,9 +69,10 @@ export const events = [
     city: "Zaporizhzhia",
   },
   {
-    id: 6,
+    id: "6",
     name: "Tech Startup Showcase",
-    date: "17/07/2023 12:00:00 PM",
+    date: "17/07/2023",
+    time: "12:00",
     description:
       "Witness the future of technology as innovative startups showcase their groundbreaking ideas.",
     url: Event6,
@@ -75,9 +81,10 @@ export const events = [
     city: "Kyiv",
   },
   {
-    id: 7,
+    id: "7",
     name: "Acoustic Garden Concert",
-    date: "18/07/2023 12:00:00 PM",
+    date: "18/07/2023",
+    time: "12:00",
     description:
       "Experience the magic of live music amidst the serene beauty of nature at our Acoustic Garden Concert.",
     url: Event7,
@@ -86,9 +93,10 @@ export const events = [
     city: "Ivano-Frankivsk",
   },
   {
-    id: 8,
+    id: "8",
     name: "Extreme Adventure Race",
-    date: "19/07/2023 12:00:00 PM",
+    date: "19/07/2023",
+    time: "12:00",
     description:
       "Calling all thrill-seekers! Embark on an adrenaline-pumping journey at our Extreme Adventure Race.",
     url: Event8,

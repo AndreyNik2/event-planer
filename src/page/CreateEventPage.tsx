@@ -4,16 +4,24 @@ import {
   Main,
   Title,
   FormContainer,
+  Label,
+  TextIInput,
+  TextArea,
+  CustomSelect,
+  DatePicker,
+  SubmitButton,
+  Form,
 } from "./CreateEventPage.styled";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LeftIcon from "../assets/svg/left.svg";
 import { Container } from "../components/Container";
 import { useForm, Controller } from "react-hook-form";
-import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { categoryList } from "./EventsPage";
-import Select from "react-select";
 import Event8 from "../assets/img/event8-1x.jpg";
+import { useAppDispatch } from "../hooks/reduxHooks";
+import { addEvents } from "../redux/eventsSlice";
+import { nanoid } from "nanoid";
 
 type FormValues = {
   title: string;
@@ -27,11 +35,43 @@ type FormValues = {
 };
 
 export const CreateEventPage: FC = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { handleSubmit, register, reset, control } = useForm<FormValues>();
 
-  const onSubmit = (data: FormValues) => {
-    alert(JSON.stringify(data));
+  const onSubmit = ({
+    title,
+    description,
+    selectDate,
+    selectTime,
+    location,
+    category,
+    addPictures = Event8,
+    priority,
+  }: FormValues) => {
+    try {
+      dispatch(
+        addEvents({
+          id: nanoid(5),
+          name: title,
+          date: `${selectDate.getDate().toString().padStart(2, "0")}/${(
+            selectDate.getMonth() + 1
+          )
+            .toString()
+            .padStart(2, "0")}/${selectDate.getFullYear()}`,
+          time: selectTime,
+          description: description,
+          url: addPictures,
+          tag: category.value,
+          city: location,
+          priority: { name: priority.label, number: Number(priority.value) },
+        })
+      );
+      reset();
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -45,42 +85,48 @@ export const CreateEventPage: FC = () => {
         </GoBackButton>
         <Title>Create new event</Title>
         <FormContainer>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <label>
-              Title
-              <input {...register("title")} id="title" />
-            </label>
-
-            <label>
-              Description
-              <textarea {...register("description")} />
-            </label>
-            <label>Select date</label>
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <Label>Title</Label>
+            <TextIInput required autoComplete="off" {...register("title")} />
+            <Label>Description </Label>
+            <TextArea required {...register("description")} />
+            <Label>Select date</Label>
             <Controller
               control={control}
               name="selectDate"
               render={({ field: { value, ...fieldProps } }) => {
                 return (
-                  <ReactDatePicker
+                  <DatePicker
                     {...fieldProps}
                     className="input"
                     placeholderText="Select date"
                     selected={value}
+                    required
                   />
                 );
               }}
             />
-            <label>
-              Select time
-              <input {...register("selectTime")} />
-            </label>
-            <label>
-              Location
-              <input {...register("location")} />
-            </label>
+            <Label>Select time</Label>
+            <TextIInput
+              required
+              autoComplete="off"
+              {...register("selectTime")}
+            />
+
+            <Label>Location</Label>
+            <TextIInput required autoComplete="off" {...register("location")} />
+            <Label>Add picture</Label>
+            <TextIInput
+              required
+              autoComplete="off"
+              {...register("addPictures")}
+              disabled
+            />
+            <Label>Category</Label>
             <Controller
               render={({ field }) => (
-                <Select
+                <CustomSelect
+                  required
                   {...field}
                   options={categoryList.map((category) => {
                     return { value: category, label: category };
@@ -91,18 +137,16 @@ export const CreateEventPage: FC = () => {
               name="category"
               control={control}
             />
-            <label>
-              Add picture
-              <input {...register("location")} disabled defaultValue={Event8} />
-            </label>
+            <Label>Priority</Label>
             <Controller
               render={({ field }) => (
-                <Select
+                <CustomSelect
+                  required
                   {...field}
                   options={[
-                    { value: "Low", label: "Low" },
-                    { value: "Medium", label: "Medium" },
-                    { value: "High", label: "High" },
+                    { value: "1", label: "Low" },
+                    { value: "1", label: "Medium" },
+                    { value: "1", label: "High" },
                   ]}
                   isClearable
                 />
@@ -110,8 +154,8 @@ export const CreateEventPage: FC = () => {
               name="priority"
               control={control}
             />
-            <button type="submit">Submit</button>
-          </form>
+            <SubmitButton type="submit">Submit</SubmitButton>
+          </Form>
         </FormContainer>
       </Container>
     </Main>

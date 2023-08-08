@@ -1,8 +1,9 @@
 
 export interface IEvent {
-  id: number;
+  id: string;
   name: string;
   date: string;
+  time: string;
   description: string;
   url: string;
   tag: string;
