@@ -88,6 +88,7 @@ export const SearchInput = styled.input`
   box-shadow: 2px 4px 9px 0px #a68dae47;
 `;
 
+
 export const SearchImgContainer = styled.div`
   position: absolute;
   top: 15px;

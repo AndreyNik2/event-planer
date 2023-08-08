@@ -41,27 +41,36 @@ import { Container } from "../components/Container";
 import { useAppSelector } from "../hooks/reduxHooks";
 import { IEvent } from "../models/IEvent";
 
-  export const categoryList = [
-    "Art",
-    "Business",
-    "Conference",
-    "Workshop",
-    "Party",
-    "Shop",
-  ];
+export const categoryList = [
+  "Art",
+  "Business",
+  "Conference",
+  "Workshop",
+  "Party",
+  "Shop",
+];
 
-  export const sortList = [
-    { name: "by name", icon: UpIcon, tag: "nameUp" },
-    { name: "by name", icon: DownIcon, tag: "nameDown" },
-    { name: "by data", icon: UpIcon, tag: "dateUp" },
-    { name: "by data", icon: DownIcon, tag: "dateDown" },
-    { name: "by priority", icon: UpIcon, tag: "priorityUp" },
-    { name: "by priority", icon: DownIcon, tag: "priorityDown" },
-  ];
+export const sortList = [
+  { name: "by name", icon: UpIcon, tag: "nameUp" },
+  { name: "by name", icon: DownIcon, tag: "nameDown" },
+  { name: "by data", icon: UpIcon, tag: "dateUp" },
+  { name: "by data", icon: DownIcon, tag: "dateDown" },
+  { name: "by priority", icon: UpIcon, tag: "priorityUp" },
+  { name: "by priority", icon: DownIcon, tag: "priorityDown" },
+];
 
-type ISettingsInput = {
-  sort: string;
-  category: string;
+export const colorPicker = (tag: string) => {
+  if (tag === "Low") {
+    return { color: "#6BD475" };
+  }
+  if (tag === "Medium") {
+    return { color: "#E2A300" };
+  }
+  if (tag === "High") {
+    return { color: "#FF2B77" };
+  } else {
+    return { color: "#7B61FF" };
+  }
 };
 
 export const EventsPage: FC = () => {
@@ -72,27 +81,11 @@ export const EventsPage: FC = () => {
   const [togleSort, setTogleSort] = useState<boolean>(false);
   const [togleFilter, setTogleFilter] = useState<boolean>(false);
 
-
-
   const descriptionSlicer = (description: string) => {
     if (description.length < 140) {
       return description;
     } else {
       return `${description.slice(0, 140)}...`;
-    }
-  };
-
-  const colorPicker = (tag: string) => {
-    if (tag === "Low") {
-      return { color: "#6BD475" };
-    }
-    if (tag === "Medium") {
-      return { color: "#E2A300" };
-    }
-    if (tag === "High") {
-      return { color: "#FF2B77" };
-    } else {
-      return { color: "#7B61FF" };
     }
   };
 
@@ -288,7 +281,7 @@ export const EventsPage: FC = () => {
                     <DateContainer>
                       <Date>
                         {event.date.slice(0, 2)}.{event.date.slice(3, 5)} at
-                        {event.date.slice(11, 13)}:{event.date.slice(14, 16)}
+                        {event.time}
                       </Date>
                       <City>{event.city}</City>
                     </DateContainer>
