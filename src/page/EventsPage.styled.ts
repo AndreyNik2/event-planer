@@ -128,7 +128,9 @@ export const FilterSortBtns = styled.button`
   outline: none;
   border: none;
   box-shadow: 2px 4px 9px 0px #a68dae47;
-  
+  &:hover {
+    box-shadow: 2px 4px 9px 0px #333333;
+  }
 `;
 
 export const EventsList = styled.ul`
@@ -166,7 +168,8 @@ export const EventItem = styled.li`
 export const EventImageWrapper = styled.div``;
 
 export const EventImage = styled.img`
-  height: 336px;
+  width: 330px;
+  display: block;
 `;
 
 export const TagsContainer = styled.div`

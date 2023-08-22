@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import CreateIcon from "../assets/svg/create.svg";
 import SortIcon from "../assets/svg/sort.svg";
 import FilterIcon from "../assets/svg/filter.svg";
@@ -8,26 +8,26 @@ import DownIcon from "../assets/svg/down.svg";
 import {
   BtnContainer,
   CreateLinkContainer,
-  EventItem,
+  // EventItem,
   EventsList,
   FilterSortBtns,
   Main,
   Title,
-  EventImageWrapper,
-  EventImage,
-  EventTitle,
-  EventDescription,
-  EventLink,
-  TagsContainer,
-  TagContainer,
-  Tag,
-  DateContainer,
-  Date,
-  City,
-  EventInfoContainer,
-  HoverContainer,
-  EventDescriptionContainer,
-  MoreBtn,
+  // EventImageWrapper,
+  // EventImage,
+  // EventTitle,
+  // EventDescription,
+  // EventLink,
+  // TagsContainer,
+  // TagContainer,
+  // Tag,
+  // DateContainer,
+  // Date,
+  // City,
+  // EventInfoContainer,
+  // HoverContainer,
+  // EventDescriptionContainer,
+  // MoreBtn,
   RelativeBtnContainer,
   FilterList,
   FilterItem,
@@ -40,6 +40,7 @@ import {
 import { Container } from "../components/Container";
 import { useAppSelector } from "../hooks/reduxHooks";
 import { IEvent } from "../models/IEvent";
+import { EventItemEventsPage } from "../components/EventItemEventsPage";
 
 export const categoryList = [
   "Art",
@@ -81,13 +82,13 @@ export const EventsPage: FC = () => {
   const [togleSort, setTogleSort] = useState<boolean>(false);
   const [togleFilter, setTogleFilter] = useState<boolean>(false);
 
-  const descriptionSlicer = (description: string) => {
-    if (description.length < 140) {
-      return description;
-    } else {
-      return `${description.slice(0, 140)}...`;
-    }
-  };
+  // const descriptionSlicer = (description: string) => {
+  //   if (description.length < 140) {
+  //     return description;
+  //   } else {
+  //     return `${description.slice(0, 140)}...`;
+  //   }
+  // };
 
   useEffect(() => {
     const prepareEvents = (
@@ -262,41 +263,7 @@ export const EventsPage: FC = () => {
         {preparedEvents && (
           <EventsList>
             {preparedEvents.map((event) => (
-              <EventItem key={event.id}>
-                <EventLink key={event.id} to={`/info/${event.id}`}>
-                  <EventImageWrapper>
-                    <EventImage src={event.url} alt={event.name} />
-                  </EventImageWrapper>
-                  <TagsContainer>
-                    <TagContainer>
-                      <Tag style={colorPicker(event.tag)}>{event.tag}</Tag>
-                    </TagContainer>
-                    <TagContainer>
-                      <Tag style={colorPicker(event.priority.name)}>
-                        {event.priority.name}
-                      </Tag>
-                    </TagContainer>
-                  </TagsContainer>
-                  <HoverContainer>
-                    <DateContainer>
-                      <Date>
-                        {event.date.slice(0, 2)}.{event.date.slice(3, 5)} at
-                        {event.time}
-                      </Date>
-                      <City>{event.city}</City>
-                    </DateContainer>
-                    <EventInfoContainer>
-                      <EventTitle>{event.name}</EventTitle>
-                      <EventDescriptionContainer>
-                        <EventDescription>
-                          {descriptionSlicer(event.description)}
-                        </EventDescription>
-                      </EventDescriptionContainer>
-                      <MoreBtn>More info</MoreBtn>
-                    </EventInfoContainer>
-                  </HoverContainer>
-                </EventLink>
-              </EventItem>
+              <EventItemEventsPage event={event} key={event.id}/>
             ))}
           </EventsList>
         )}
