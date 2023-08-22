@@ -86,6 +86,7 @@ export const SearchInput = styled.input`
   border-radius: 10px;
   border: 1px solid #a68dae47;
   box-shadow: 2px 4px 9px 0px #a68dae47;
+  cursor: pointer;
 `;
 
 
