@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/event-planer/static/css/main.150a9f8d.css",
-    "main.js": "/event-planer/static/js/main.47664418.js",
+    "main.js": "/event-planer/static/js/main.1567f075.js",
     "static/js/787.f58caeb5.chunk.js": "/event-planer/static/js/787.f58caeb5.chunk.js",
     "static/media/bg-wave-2x.jpg": "/event-planer/static/media/bg-wave-2x.9e6b27057363697713ba.jpg",
     "static/media/bg-wave-1x.jpg": "/event-planer/static/media/bg-wave-1x.4961410136727182afe9.jpg",
@@ -22,11 +22,11 @@
     "static/media/filter.svg": "/event-planer/static/media/filter.85a18bb1c084cfee72ecb59c829267e0.svg",
     "static/media/create.svg": "/event-planer/static/media/create.53383831112d0f75cea391d2c66bf9b6.svg",
     "main.150a9f8d.css.map": "/event-planer/static/css/main.150a9f8d.css.map",
-    "main.47664418.js.map": "/event-planer/static/js/main.47664418.js.map",
+    "main.1567f075.js.map": "/event-planer/static/js/main.1567f075.js.map",
     "787.f58caeb5.chunk.js.map": "/event-planer/static/js/787.f58caeb5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.150a9f8d.css",
-    "static/js/main.47664418.js"
+    "static/js/main.1567f075.js"
   ]
 }
